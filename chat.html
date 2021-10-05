@@ -1,0 +1,29 @@
+<script type="text/javascript">
+	RED.menu.addItem('red-ui-header-button-sidemenu', {
+		id: 'menu-item-open-chat',
+		label: 'Open chat window',
+		href: '/chat/'
+	});
+
+	RED.nodes.registerType('chat',{
+		category: 'config',
+		defaults: {
+			name: {value: '', required: true, validate: (x) => x.length > 0},
+			nick: {value: '', required: true, validate: (x) => x.length > 0}
+		},
+		label: function() {
+			return this.name;
+		}
+	});
+</script>
+
+<script type="text/html" data-template-name="chat">
+	<div class="form-row">
+		<label for="node-config-input-name"><i class="fa fa-tag"></i> Room name</label>
+		<input type="text" id="node-config-input-name">
+	</div>
+	<div class="form-row">
+		<label for="node-config-input-nick"><i class="fa fa-id-card"></i> Nick name</label>
+		<input type="text" id="node-config-input-nick">
+	</div>
+</script>

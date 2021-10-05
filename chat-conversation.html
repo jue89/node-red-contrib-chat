@@ -1,0 +1,27 @@
+<script type="text/javascript">
+	RED.nodes.registerType('chat-conversation', {
+		category: 'chat',
+		color: 'rgb(148, 193, 208)',
+		defaults: {
+			room: {value: '', type: 'chat', required: true}
+		},
+		inputs: 1,
+		outputs: 0,
+		icon: 'font-awesome/fa-users',
+		label: function () {
+			const room = (this.room) ? RED.nodes.node(this.room).label() : '<unconfigured>';
+			return `Room: ${room}`;
+		}
+	});
+</script>
+
+<script type="text/html" data-template-name="chat-conversation">
+	<div class="form-row">
+		<label for="node-input-room"><i class="fa fa-group"></i> Room</label>
+		<input type="text" id="node-input-room" placeholder="room">
+	</div>
+</script>
+
+<script type="text/html" data-help-name="chat-conversation">
+	<p>Conservation of a chat room</p>
+</script>
